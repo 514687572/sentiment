@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "home": "/pages/home/home",
+    "about": "/pages/about/about"
+  }
 }

@@ -1,41 +1,19 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs",
+    "pages/about/about",
     "pages/home/home",
-    "pages/me/me",
-    "pages/new/news"
+    "pages/detail/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#303034",
-    "navigationBarTitleText": "情感pro",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "ColorUI",
+    "navigationStyle": "custom",
     "navigationBarTextStyle": "white"
   },
-  "tabBar": {
-    "borderStyle": "white",
-    "selectedColor": "#355A83",
-    "backgroundColor": "white",
-    "list": [
-      {
-        "pagePath": "pages/home/home",
-        "text": "动 态",
-        "iconPath": "pages/img/tab/d1.png",
-        "selectedIconPath": "pages/img/tab/d.png"
-      },
-      {
-        "pagePath": "pages/new/news",
-        "text": "+关 注",
-        "iconPath": "pages/img/tab/add1.png",
-        "selectedIconPath": "pages/img/tab/add.png"
-      },
-      {
-        "pagePath": "pages/me/me",
-        "text": "我 的",
-        "iconPath": "pages/img/tab/me1.png",
-        "selectedIconPath": "pages/img/tab/me.png"
-      }
-    ]
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom"
   },
   "sitemapLocation": "sitemap.json"
 }

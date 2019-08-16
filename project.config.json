@@ -9,13 +9,12 @@
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-		"autoAudits": false,
-		"coverView": true
+		"autoAudits": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.0.4",
+	"libVersion": "2.4.2",
 	"appid": "wx9c793569c1b57d37",
-	"projectname": "sentiment",
+	"projectname": "情感pro",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
