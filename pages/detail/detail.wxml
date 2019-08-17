@@ -1,6 +1,6 @@
 <cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
   <view slot="backText">返回</view>
-  <view slot="content">动 态</view>
+  <view slot="content">动态详情</view>
 </cu-custom>
 
 <view class="cu-card dynamic {{isCard?'no-card':''}}">

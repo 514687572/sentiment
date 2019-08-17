@@ -1,16 +1,25 @@
 <home wx:if="{{PageCur=='home'}}"></home>
+<add wx:if="{{PageCur=='add'}}"></add>
 <about wx:if="{{PageCur=='about'}}"></about>
 <view class="cu-bar tabbar bg-white shadow foot">
   <view class="action" bindtap="NavChange" data-cur="home">
     <view class='cuIcon-cu-image'>
       <image src="/images/tabbar/basics{{PageCur=='home'?'_cur':''}}.png"></image>
     </view>
-    <view class="{{PageCur=='home'?'text-green':'text-gray'}}">元素</view>
+    <view class="{{PageCur=='home'?'text-green':'text-gray'}}">动态</view>
   </view>
+
+  <view class="action" bindtap="NavChange" data-cur="add">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/tabbar/add{{PageCur=='add'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='add'?'text-green':'text-gray'}}">添加</view>
+  </view>
+
   <view class="action" bindtap="NavChange" data-cur="about">
     <view class='cuIcon-cu-image'>
       <image src="/images/tabbar/about{{PageCur=='about'?'_cur':''}}.png"></image>
     </view>
-    <view class="{{PageCur=='about'?'text-green':'text-gray'}}">关于</view>
+    <view class="{{PageCur=='about'?'text-green':'text-gray'}}">我的</view>
   </view>
 </view>

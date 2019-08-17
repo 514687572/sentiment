@@ -1,0 +1,16 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">新增关注</view>
+</cu-custom>
+<form>
+	<view class="cu-form-group margin-top">
+		<view class="title">关注地址</view>
+		<input placeholder="需要关注的微博、知乎博主主页，公众号名称"></input>
+	</view>
+  <view class="cu-form-group">
+		<view class="title">实时提醒</view>
+		<switch></switch>
+	</view>
+
+  <button class="cu-btn bg-gradual-blue lg margin-top">嫣红</button>
+</form>

@@ -1,0 +1,10 @@
+.cu-form-group .title {
+  min-width: calc(4em + 30rpx);
+}
+
+.box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200rpx;
+}
