@@ -10,10 +10,10 @@
   </view>
 
   <view class="action" bindtap="NavChange" data-cur="add">
-    <view class='cuIcon-cu-image'>
-      <image src="/images/tabbar/add{{PageCur=='add'?'_cur':''}}.png"></image>
+    <view class="action {{PageCur=='add'?'text-green':'text-gray'}} add-action">
+      <button class="cu-btn cuIcon-add {{PageCur=='add'?'bg-green':'bg-gray'}} shadow"></button>
+      添加
     </view>
-    <view class="{{PageCur=='add'?'text-green':'text-gray'}}">添加</view>
   </view>
 
   <view class="action" bindtap="NavChange" data-cur="about">
