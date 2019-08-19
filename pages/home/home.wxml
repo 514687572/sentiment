@@ -3,7 +3,7 @@
     <view slot="content">最新动态</view>
   </cu-custom>
 
-  <view class="cu-bar bg-white solid-bottom {{isCard?'margin-top':''}}">
+  <view class="cu-bar bg-white solid-bottom {{isCard?'margin-top':''}}" wx:if="{{!hasUserInfo && canIUse}}">
     <view class='action'>
       <button class="cu-btn round bg-gradual-blue {{shadow?'shadow':''}}" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="getUserInfo">登 录</button>
     </view>
