@@ -11,7 +11,7 @@
 
   <view class="cu-bar bg-white solid-bottom margin-top">
     <view class="action">
-      <text class="cuIcon-title text-orange "></text> 消息列表
+      <text class="cuIcon-title text-orange "></text> 动态列表
     </view>
   </view>
   <view class="cu-list menu-avatar">
