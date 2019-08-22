@@ -10,6 +10,7 @@ Page({
       skin: false
     },
     onLoad: function() {
+      this.getUser()
       if (app.globalData.userInfo) {
         this.setData({
           userInfo: app.globalData.userInfo,
@@ -47,14 +48,45 @@ Page({
         modalName: null
       })
     },
-    getUserInfo: function(e) {
-      console.log(e)
-      app.globalData.userInfo = e.detail.userInfo
-      this.setData({
-        userInfo: e.detail.userInfo,
-        hasUserInfo: true
-      })
-    }
+  getUser() {
+    let that = this
+    // 获取用户信息
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {
+          wx.getUserInfo({
+            success: res => {
+              console.log(this.data.msgobj)
+              let enobj = {
+                encryptedData: res.encryptedData,
+                iv: res.iv,
+                signature: res.signature,
+                rawData: res.rawData,
+                sessionKey: that.globalData.sessinoKey
+              }
+              console.log(enobj)
+              wx.request({
+                url: that.globalData.serverUrl + '/user/info', //仅为示例，并非真实的接口地址
+                data: enobj,
+                header: {
+                  'content-type': 'application/json' // 默认值
+                },
+                success(res) {
+                  hasUserInfo: true
+                }
+              })
+
+            }
+          })
+        } else {
+
+        }
+      },
+      fail: function (err) {
+
+      }
+    })
+  }
   }),
   Component({
     options: {
