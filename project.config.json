@@ -23,7 +23,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.8.0",
 	"appid": "wx9c793569c1b57d37",
-	"projectname": "%E6%83%85%E6%84%9Fpro",
+	"projectname": "订阅宝pro",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

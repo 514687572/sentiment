@@ -1,9 +1,8 @@
-import request from "./utils/request.js"
-let httpajax = require('./utils/request.js')
 //app.js
 App({
   onLaunch: function() {
     let that = this
+    that.globalData.userInfo =false
     // 登录
     wx.login({
       success: res => {
@@ -17,9 +16,10 @@ App({
             'content-type': 'application/json' // 默认值
           },
           success(res) {
-            var sessionKey=JSON.parse(JSON.stringify(res.data)).sessionKey
-            wx.setStorageSync('sessinoKey', sessionKey.split("&$&")[1])
-            that.globalData.sessinoKey = sessionKey.split("&$&")[1]
+            wx.setStorage({
+              key: 'user',
+              data: JSON.stringify(res.data)
+            })
           }
         })
 
@@ -34,24 +34,29 @@ App({
             success: res => {
               // 可以将 res 发送给后台解码出 unionId
               that.globalData.userInfo = res.userInfo
+
+              let usermsg = wx.getStorageSync('user')
+              let user = JSON.parse(usermsg)
+
               let enobj = {
                 encryptedData: res.encryptedData,
                 iv: res.iv,
                 signature: res.signature,
                 rawData: res.rawData,
-                sessionKey: wx.getStorageSync("sessionKey")
+                sessionKey: user.sessionKey.split("&$&")[0]
               }
 
-              console.log(wx.getStorageSync("sessionKey"))
+              console.log(user.sessionKey)
               
               wx.request({
-                url: that.globalData.serverUrl + '/user/info', //仅为示例，并非真实的接口地址
+                url: that.globalData.serverUrl + '/user/info?' + "t=" + new Date().getTime(), //仅为示例，并非真实的接口地址
                 data: enobj,
                 header: {
                   'content-type': 'application/json' // 默认值
                 },
                 success(res) {
-                  hasUserInfo: true
+                  that.globalData.hasUserInfo=true
+                  console.log(that.globalData.hasUserInfo)
                 }
               })
 
@@ -76,8 +81,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null,
     serverUrl: "http://localhost:8015",
-    sessinoKey: null
+    hasUserInfo: false,
   }
 })
