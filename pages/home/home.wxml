@@ -2,10 +2,9 @@
   <cu-custom bgColor="bg-gradual-blue">
     <view slot="content">最新动态</view>
   </cu-custom>
-{{hasUserInfo}}+123
   <view class="cu-bar bg-white solid-bottom {{isCard?'margin-top':''}}" wx:if="{{hasUserInfo}}">
     <view class='action'>
-      <button class="cu-btn round bg-gradual-blue {{shadow?'shadow':''}}" open-type="getUserInfo" lang="zh_CN" >登 录</button>
+      <button class="cu-btn round bg-gradual-blue {{shadow?'shadow':''}}" open-type="getUserInfo">登 录</button>
     </view>
   </view>
 

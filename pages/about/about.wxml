@@ -1,27 +1,10 @@
 <scroll-view scroll-y class="scrollPage">
   <view class="UCenter-bg">
-    <image src="/images/logo.png" class="png" mode="widthFix"></image>
-    <view class="text-xl">ColorUI组件库
-    </view>
-    <image src="https://image.weilanwl.com/gif/wave.gif" mode="scaleToFill" class="gif-wave"></image>
+    <image src="{{headUrl}}" class="png" mode="widthFix"></image>
+    <view class="text-xl">{{nickName}}</view>
+    <image src="{{headUrl}}" mode="scaleToFill" class="gif-wave"></image>
   </view>
-  <view class="padding flex text-center text-grey bg-white shadow-warp">
-    <view class="flex flex-sub flex-direction solid-right">
-      <view class="text-xxl text-orange">{{visitTotal}}</view>
-      <view class="margin-top-sm">
-        <text class="cuIcon-attentionfill"></text> View</view>
-    </view>
-    <view class="flex flex-sub flex-direction solid-right">
-      <view class="text-xxl text-blue">{{starCount}}</view>
-      <view class="margin-top-sm">
-        <text class="cuIcon-favorfill"></text> Star</view>
-    </view>
-    <view class="flex flex-sub flex-direction">
-      <view class="text-xxl text-green">{{forksCount}}</view>
-      <view class="margin-top-sm">
-        <text class="cuIcon-fork"></text> Fork</view>
-    </view>
-  </view>
+
   <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
     <view class="cu-item arrow">
       <navigator class="content" url="/pages/about/about/about" hover-class="none">

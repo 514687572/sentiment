@@ -6,6 +6,17 @@ Component({
     starCount: 0,
     forksCount: 0,
     visitTotal: 0,
+    headUrl:"",
+    nickName:"",
+  },
+  ready() {
+    let that = this;
+    let user = wx.getStorageSync('user')
+    console.log(user.avatarUrl)
+    that.setData({
+      headUrl: user.avatarUrl,
+      nickName: user.nickName,
+    })
   },
   attached() {
     console.log("success")
