@@ -9,34 +9,41 @@ Component({
   ready() {
     let that=this
     let glb = getApp().globalData
-    console.log(16)
 
-    // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        wx.request({
-          url: glb.serverUrl + '/user/getSessionKey', //仅为示例，并非真实的接口地址
-          data: {
-            jsCode: res.code
-          },
-          header: {
-            'content-type': 'application/json' // 默认值
-          },
-          success(res) {
-            wx.setStorage({
-              key: 'userKey',
-              data: JSON.stringify(res.data)
+    wx.checkSession({
+      success() {
+        //session_key 未过期，并且在本生命周期一直有效
+      },
+      fail() {
+        // 登录
+        wx.login({
+          success: res => {
+            // 发送 res.code 到后台换取 openId, sessionKey, unionId
+            wx.request({
+              url: glb.serverUrl + '/user/getSessionKey', //仅为示例，并非真实的接口地址
+              data: {
+                jsCode: res.code
+              },
+              header: {
+                'content-type': 'application/json' // 默认值
+              },
+              success(res) {
+                wx.setStorage({
+                  key: 'userKey',
+                  data: JSON.stringify(res.data)
+                })
+              }
             })
+
           }
         })
-
       }
     })
+    
     // 获取用户信息
     wx.getSetting({
       success: res => {
-        console.log(11)
+        
         if (res.authSetting['scope.userInfo']) {
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({
@@ -57,7 +64,7 @@ Component({
                 iv: res.iv,
                 signature: res.signature,
                 rawData: res.rawData,
-                sessionKey: user.sessionKey.split("&$&")[1]
+                sessionKey: user.sessionKey.split("&$&")[0]
               }
 
               wx.request({
